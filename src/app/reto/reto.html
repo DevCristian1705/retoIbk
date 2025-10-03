@@ -1,0 +1,13 @@
+
+<div class="reto"> 
+    <div class="contenedor">
+        <app-buscador (search)="onSearch($event)"></app-buscador>
+        <app-resultados 
+            [resultsData]="results"
+            [info]="info"
+            (paginate)="onPageChange($event)"
+        ></app-resultados>
+    </div>
+</div>
+
+

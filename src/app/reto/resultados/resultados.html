@@ -1,0 +1,26 @@
+@if (info && resultsData) {
+    <div class="paginacion"> 
+        <button (click)="goToPage(currentPage - 1)" [disabled]="currentPage === 1">Prev</button>
+        <span>Página {{ currentPage }} de {{ info?.pages }}</span>
+        <button (click)="goToPage(currentPage + 1)" [disabled]="currentPage === info?.pages">Next</button> 
+    </div>
+}
+
+<br>
+
+@if (resultsData && resultsData.length > 0) {
+  <div class="grid-container">
+    @for (item of resultsData; track item.id) {
+      <div class="grid-item">
+        <p>{{ item.name }}</p>
+        <img [src]="item.image" alt="">
+      </div>
+    }
+  </div>
+} @else {
+  @if (service.currentState() !== '') {
+    <div class="grid-status">
+      <p>{{ service.currentState() }}</p>
+    </div>
+  }
+}
